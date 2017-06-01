@@ -80,8 +80,8 @@ namespace RemoveFromChangeList
 
 					if (oldDiff != newDiffBuilder.ToString())
 					{
-						Console.WriteLine($"{path} has changed. Move it from change list");
-						Process.Start("svn", "changelist --remove " + path);
+						Console.WriteLine($"{filePath} has changed. Move it from change list");
+						Process.Start("svn", "changelist --remove " + filePath);
 
 						File.Delete(historyDiff);
 					}
@@ -93,9 +93,7 @@ namespace RemoveFromChangeList
 				}
 
 			}
-
-
-			Console.ReadKey();
+			
 		}
 
 		private static string GetDiffFilePath(string filePath)
