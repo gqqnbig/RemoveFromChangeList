@@ -28,6 +28,8 @@ namespace RemoveFromChangeList
 			var modifiedFilesInChangeLists = GetModifiedFiles(path);
 
 			var diffPathes = modifiedFilesInChangeLists.Select(GetDiffFilePath).ToList();
+
+			Directory.CreateDirectory(diffFolder);
 			foreach (string filePath in Directory.EnumerateFiles(diffFolder))
 			{
 				if (diffPathes.Contains(filePath) == false)	//the file is no longer in a change list, we should remove the diff file.
